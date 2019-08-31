@@ -11,6 +11,18 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
+                        @if(Session::has('message'))
+                          <div class="alert alert-success alert-dismissible fade show">
+                            {{ Session::get('message') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            @php
+                              Session::forget('message');
+                            @endphp
+                          </div>
+                        @endif
+
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 

@@ -1,2 +1,2 @@
-# laravel-loginwizard
-Create login wizard on laravel
+# laravel-registerwizard
+Create multi step register (wizard) on Laravel

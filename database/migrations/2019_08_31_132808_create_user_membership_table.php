@@ -17,7 +17,9 @@ class CreateUserMembershipTable extends Migration
           $table->bigIncrements('id');
           $table->bigInteger('user_id')->unsigned();
           $table->bigInteger('membership_id')->unsigned();
-          $table->string('credit_card');
+          $table->string('card_number');
+          $table->date('card_expirated');
+          $table->string('card_ccv');
 
           $table->foreign('user_id')->references('id')
                 ->on('users')->onDelete('cascade');

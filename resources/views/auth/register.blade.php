@@ -15,7 +15,7 @@
                             <label for="first_name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
+                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" autocomplete="first_name" autofocus>
 
                                 @error('first_name')
                                     <span class="invalid-feedback" role="alert">
@@ -88,6 +88,92 @@
                                 @enderror
                             </div>
                         </div>
+
+                        {{-- <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+
+                            <div class="col-md-6">
+                                <textarea id="address" class="form-control @error('address') is-invalid @enderror" name="address" required autocomplete="address">{{ old('address') }}</textarea>
+
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="membership" class="col-md-4 col-form-label text-md-right">{{ __('Membership') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="membership" class="form-control @error('membership') is-invalid @enderror" name="membership" required autocomplete="membership">
+                                  <option value="">Silver</option>
+                                  <option value="">Gold</option>
+                                  <option value="">Platinum</option>
+                                  <option value="">Black</option>
+                                  <option value="">VIP</option>
+                                  <option value="">VVIP</option>
+                                </select>
+
+                                @error('membership')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="card_number" class="col-md-4 col-form-label text-md-right">{{ __('Credit Card Number') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="card_number" type="number" class="form-control @error('card_number') is-invalid @enderror" name="card_number" value="{{ old('card_number') }}" required autocomplete="card_number">
+
+                                @error('card_number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Expiration') }}</label>
+
+                            <div class="col-md-3">
+                                <input id="expired_month" type="date" class="form-control @error('expired_month') is-invalid @enderror" name="expired_month" value="{{ old('card_expired') }}" required autocomplete="expired_month">
+
+                                @error('expired_month')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="col-md-3">
+                                <input id="expired_year" type="date" class="form-control @error('expired_year') is-invalid @enderror" name="expired_year" value="{{ old('expired_year') }}" required autocomplete="expired_year">
+
+                                @error('expired_year')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-md-4 col-form-label text-md-right">{{ __('CVV Number') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="cvv_number" type="number" class="form-control @error('cvv_number') is-invalid @enderror" name="cvv_number" value="{{ old('cvv_number') }}" required autocomplete="cvv_number">
+
+                                @error('cvv_number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div> --}}
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

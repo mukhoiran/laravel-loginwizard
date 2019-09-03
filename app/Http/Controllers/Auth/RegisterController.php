@@ -43,18 +43,56 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    // Step 1 (GET)
+    public function showRegistrationForm(Request $request)
+    {
+        $registerStep1 = $request->session()->get('registerStep1');
+        return view('auth.register', ['registerStep1' => $registerStep1]);
+    }
+
+    // Step 1 (POST)
     public function register(Request $request)
     {
-        $this->validator($request->all())->validate();
-        event(new Registered($user = $this->create($request->all())));
-        return redirect('/login')->with('message', 'Registered successfully, please login...!');;
+      $validatedData = $request->validate([
+        'first_name' => ['string', 'max:255'],
+        'last_name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+      ]);
+
+      if(empty($request->session()->get('registerStep1'))){
+          $registerStep1 = new User();
+          $registerStep1->fill($validatedData);
+          $request->session()->put('registerStep1', $registerStep1);
+      }else{
+          $registerStep1 = $request->session()->get('registerStep1');
+          $registerStep1->fill($validatedData);
+          $request->session()->put('registerStep1', $registerStep1);
+      }
+
+      return redirect('/register2');
+
+        // $this->validator($request->all())->validate();
+        // event(new Registered($user = $this->create($request->all())));
+        // return redirect('/login')->with('message', 'Registered successfully, please login...!');;
     }
+
+    // Step 1 (GET)
+    public function showRegistrationForm2(Request $request)
+    {
+        dd('ok');
+        $registerStep2 = $request->session()->get('registerStep2');
+        return view('auth.register2',compact('registerStep2', $registerStep2));
+    }
+
+
     /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    //Step 1 (Validator)
     protected function validator(array $data)
     {
         return Validator::make($data, [

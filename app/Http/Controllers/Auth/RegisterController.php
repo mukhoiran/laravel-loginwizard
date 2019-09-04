@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Membership;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -80,9 +81,9 @@ class RegisterController extends Controller
     // Step 1 (GET)
     public function showRegistrationForm2(Request $request)
     {
-        dd('ok');
         $registerStep2 = $request->session()->get('registerStep2');
-        return view('auth.register2',compact('registerStep2', $registerStep2));
+        $memberships = Membership::all();
+        return view('auth.register2',['registerStep2' => $registerStep2, 'memberships' => $memberships]);
     }
 
 
